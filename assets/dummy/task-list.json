@@ -1,0 +1,38 @@
+{
+    "new": [
+        {
+            "id": "1223",
+            "name": "Create task 1",
+            "description": "This is a description of task 1"
+        },
+        {
+            "id": "1222",
+            "name": "Create task 2",
+            "description": "This is a description of task 2"
+        }
+    ],
+    "inProgress": [
+        {
+            "id": "12122",
+            "name": "Task 2",
+            "description": "This is a description of task 2"
+        },
+        {
+            "id": "12145e",
+            "name": "Task 3",
+            "description": "This is a description of task 3"
+        }
+    ],
+    "done": [
+        {
+            "id": "121678e",
+            "name": "Task 4",
+            "description": "This is a description of task 4"
+        },
+        {
+            "id": "121098e",
+            "name": "Task 5",
+            "description": "This is a description of task 5"
+        }
+    ]
+}
