@@ -46,6 +46,8 @@ export class NavbarComponent implements OnInit, OnChanges {
       } else if((location.pathname.substr(1).includes('login'))) {
         this.activeId = 'pills-login-tab';
       }
+    } else {
+      this.activeId = 'pills-dashboard-tab';
     }
   }
   

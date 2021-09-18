@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class NavBarService {
 
-  private nameChange = new BehaviorSubject<string>('');
+  private nameChange = new BehaviorSubject<string>('dashboard');
   navName$ = this.nameChange.asObservable();
   constructor() {}
 
