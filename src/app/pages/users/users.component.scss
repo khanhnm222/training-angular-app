@@ -1,0 +1,18 @@
+.btn-add {
+    padding: 30px 60px 0px 80px;
+    margin-bottom: 20px;
+}
+
+.user-list {
+    padding: 0px 60px 0 80px;
+    display: flex;
+
+    app-user-card {
+        margin-bottom: 20px;
+    }
+
+    app-user-card-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

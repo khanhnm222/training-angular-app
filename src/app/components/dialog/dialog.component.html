@@ -1,0 +1,34 @@
+
+  <!-- Modal -->
+  <div
+    class="modal fade "
+    [attr.id]="targetID"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="dialogLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" [ngClass]="dlgClass">
+      <div class="modal-content">
+        <div class="modal-header common-bg">
+          <h5 class="modal-title" id="dialogLabel"> <i class="fa fa-question-circle"></i> {{dlgTitle}}</h5>
+          <button
+            *ngIf="showCloseIcon"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close">
+        </button>
+        </div>
+        <div class="modal-body">
+            <div *ngIf="dlgHTML; else onlyText" [innerHTML]="dlgHTML"></div>
+            <ng-template #onlyText>
+                {{dlgMessage}}
+            </ng-template>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal" (click)="handelCancel.emit()">{{btnCancel}}</button>
+          <button class="btn btn-danger" [attr.data-bs-dismiss]="closeAndSave ? 'modal' : ''" (click)="handleConfirm.emit()">{{btnSave}}</button>
+        </div>
+      </div>
+    </div>
+  </div>

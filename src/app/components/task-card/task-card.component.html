@@ -1,0 +1,70 @@
+<div class="row">
+    <div *ngIf="taskStatus === 'new'">
+        <div class="card">
+            <h5 class="card-header new">New Tasks</h5>
+            <div class="card-body">
+                <div class="add-btn">
+                    <a class="btn btn-success btn-circle" [routerLink]="['/dashboard/create-new-task']">
+                        <i class="fa fa-plus"></i>&nbsp;
+                    </a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let item of newTaskData">
+                        <a
+                            class="btn inprogress-btn truncated"
+                            [routerLink]="['/dashboard/preview-task/'+item.id]">
+                            {{item.name}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="taskStatus === 'inProgress'">
+        <div class="card">
+            <h5 class="card-header inprogress">Tasks in progress</h5>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let item of inProgressTaskData">
+                        <a
+                            class="btn inprogress-btn truncated"
+                            [routerLink]="['/dashboard/preview-task/'+item.id]">
+                            {{item.name}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="taskStatus === 'done'">
+        <div class="card accordion">
+            <h5 class="card-header done">Tasks got done</h5>
+            <div class="card-body">
+                <div class="accordion accordion-flush">
+                    <div class="accordion-item" *ngFor="let item of doneTaskData">
+                        <h2 class="accordion-header" [attr.id]="'flush-heading' + item.id">
+                            <button class="accordion-button collapsed truncated" data-bs-toggle="collapse"
+                                [attr.data-bs-target]="'#flush-collapse' + item.id" aria-expanded="false"
+                                [attr.aria-controls]="'#flush-collapse' + item.id">
+                                {{item.name}}
+                            </button>
+                        </h2>
+                        <div [attr.id]="'flush-collapse' + item.id" class="accordion-collapse collapse"
+                            [attr.aria-labelledby]="'flush-heading' + item.id">
+                            <div class="accordion-body">
+                                <div class="mb-3">
+                                    <label class="form-label">Title:</label>
+                                    <input type="text" class="form-control" [value]="item.name" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Description:</label>
+                                    <textarea class="form-control" aria-label="With textarea" readonly>{{item.description}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

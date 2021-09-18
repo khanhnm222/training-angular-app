@@ -1,0 +1,20 @@
+<div class="authorizaion-card">
+    <div class="card">
+        <div class="card-header">
+          Authorization request
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Unauthorization</h5>
+          <p class="card-text">Click the login button to get a permission and access this page.
+            Click the back button to back to Dashboard.
+          </p>
+
+          <div class="card-btn">
+            <a class="btn btn-danger btn-back" (click)="backToPrePage()"><i class="fa fa-arrow-left"></i>&nbsp; Back</a>
+            <a class="btn btn-primary btn-login" (click)="navigateToLogin()">
+                <i class="fa fa-sign-in"></i>&nbsp; Log in
+            </a>
+          </div>
+        </div>
+      </div>
+</div>

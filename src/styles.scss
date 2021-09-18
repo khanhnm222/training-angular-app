@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/font-awesome/scss/font-awesome.scss";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.nav-pills .nav-link {
+    border-radius: 0px;
+}
+
+.common-bg {
+    background: linear-gradient(270deg, #e30613 0%, #B02B5F 62.5%, #576BE3 100%);
+}
+
+.truncated {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+app-authorization-request {
+    display: flex;
+    justify-content: center;
+}

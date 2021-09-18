@@ -1,0 +1,99 @@
+<div *ngIf="!isFormCard" class="card text-center" [ngClass]="{'mw-250': isEditMode }">
+    <form [formGroup]="editForm">
+        <div class="card-header common-bg">
+            <div *ngIf="!isEditMode" class="truncated">{{userData.name}}</div>
+            <input
+                *ngIf="isEditMode"
+                type="text"
+                class="form-control lh-5"
+                id="name"
+                placeholder="User name ..."
+                required
+                [ngClass]="{'is-invalid' : (editForm.controls.name?.errors?.required && editForm.controls.name?.touched)}"
+                formControlName="name">
+        </div>
+        <div class="card-body" [ngClass]="{'body-height': !isEditMode }">
+            <img src="../../../assets//images//user-purple-gradient.jpg" class="card-image" alt="user">
+            <div class="card-title">
+                <div class="h-40" *ngIf="!isEditMode">{{userData.title}}</div>
+                <input
+                    *ngIf="isEditMode"
+                    type="text"
+                    class="form-control lh-5"
+                    id="title"
+                    placeholder="Title ..."
+                    required
+                    [ngClass]="{'is-invalid' : (editForm.controls.title?.errors?.required && editForm.controls.title?.touched)}"
+                    formControlName="title">
+            </div>
+            <div class="error-msg" role="alert" *ngIf="editForm.controls.title?.hasError('required') && editForm.controls.title?.touched">
+                <span class="field-validation-valid text-danger">Please enter valid value</span>
+            </div>
+            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-schedule" (click)="addScheduleForUser(userData.name)">Schedules</a>
+        </div>
+        <div class="card-footer text-muted">
+            <div class="btn-actions">
+                <a class="btn btn-info" *ngIf="!isEditMode" (click)="onEdit()"> <i class="fa fa-edit"></i> Edit</a>
+                <a class="btn btn-secondary" *ngIf="isEditMode" (click)="onEdit()"> <i class="fa fa-ban"></i> Cancel</a>
+                <a 
+                    class="btn btn-success"
+                    *ngIf="isEditMode"
+                    (click)="onUpdate(editForm)">
+                    <i class="fa fa-edit"></i> Update
+                </a>
+                <a
+                    class="btn btn-danger"
+                    data-bs-toggle="modal"
+                    [attr.data-bs-target]="'#modal-' + userData.id">
+                    <i class="fa fa-times"></i> Remove
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+<div *ngIf="isFormCard" class="card text-center">
+    <form [formGroup]="userForm">
+        <div class="card-header common-bg">
+            <input
+                type="text"
+                class="form-control lh-5"
+                id="name"
+                [ngClass]="{'is-invalid' : (userForm.controls.name?.errors?.required && userForm.controls.name?.touched)}"
+                placeholder="User name ..."
+                formControlName="name">
+        </div>
+        <div class="card-body form-body">
+          <img src="../../../assets//images//user-purple-gradient.jpg" class="card-image" alt="user">
+          <div class="card-title">
+            <input
+                type="text"
+                class="form-control lh-5"
+                id="title"
+                placeholder="Title ..."
+                [ngClass]="{'is-invalid' : (userForm.controls.title?.errors?.required && userForm.controls.title?.touched)}"
+                formControlName="title"> 
+          </div>
+          <div class="error-msg" role="alert" *ngIf="userForm.controls.title?.hasError('required') && userForm.controls.title?.touched">
+            <span class="field-validation-valid text-danger">Please enter valid value</span>
+            </div>
+          <a *ngIf="isEditMode" class="btn btn-primary">Schedules</a>
+        </div>
+        <div class="card-footer text-muted">
+            <div class="btn-actions">
+                <a class="btn btn-success" type="submit" (click)="onAddUser(userForm)">
+                    <i class="fa fa-plus"></i> Create
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<app-dialog
+    [targetID]="'modal-' + userData.id"
+    [dlgTitle]="'Confirmation'"
+    [btnSave]="'Yes'"
+    [btnCancel]="'No'"
+    [dlgMessage]="'Are you sure you want to delete ' + userData.name + '?'"
+    (handleConfirm)="onDeleteUser(userData.id)"
+    (handelCancel)="onCancelDelete()">
+</app-dialog>

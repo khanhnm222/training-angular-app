@@ -1,0 +1,57 @@
+<div class="tb-schedule">
+    <table class="table">
+        <thead class="common-bg">
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Creator</th>
+                <th scope="col">Description</th>
+                <th scope="col">Location</th>
+                <th scope="col">Time Start</th>
+                <th scope="col">Time End</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let schedule of schedules">
+                <td>
+                    {{schedule.title}}
+                </td>
+                <td>
+                    {{schedule.creator}}
+                </td>
+                <td>
+                    {{schedule.description}}
+                </td>
+                <td>
+                    {{schedule.location}}
+                </td>
+                <td>
+                    {{schedule.startTime | date:'medium'}}
+                </td>
+                <td>
+                    {{schedule.endTime | date:'medium'}}
+                </td>
+                <td class="btn-actions">
+                    <button type="cancel" class="btn btn-success">
+                        <i class="fa fa-info"></i>&nbsp;Details
+                    </button>
+                    <button type="cancel" class="btn btn-info">
+                        <i class="fa fa-edit"></i>&nbsp;Edit
+                    </button>
+                    <button type="cancel" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-confirm" (click)="getRow(schedule)">
+                        <i class="fa fa-times"></i>&nbsp;Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <app-dialog
+        [targetID]="'delete-confirm'"
+        [dlgTitle]="'Confirmation'"
+        [btnSave]="'Yes'"
+        [btnCancel]="'No'"
+        [dlgMessage]="'Are you sure you would like to delete a schedule of ' + schedule.creator + '?'"
+        (handleConfirm)="onDelete()"
+        (handelCancel)="onCancelDelete()">
+    </app-dialog>
+</div>

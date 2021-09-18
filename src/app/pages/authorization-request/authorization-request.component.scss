@@ -1,0 +1,23 @@
+.authorizaion-card {
+    width: 500px;
+    padding-top: max(170px, calc(50vh - 280px));
+
+    .card {
+        .card-header {
+            color: white;
+            background: linear-gradient(270deg, #FF0033 0%, #B02B5F 62.5%, #CC3399 100%);
+        }
+    }
+    .card-btn {
+        display: flex;
+        justify-content: center;
+
+        .btn-back {
+            margin-right: 20px;
+        }
+
+        .btn-login {
+            margin-left: 20px;
+        }
+    }
+}

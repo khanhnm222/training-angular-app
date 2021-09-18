@@ -1,0 +1,87 @@
+<div class="task-action-content">
+    <div>
+      <a class="btn btn-danger" [routerLink]="['/dashboard']">
+        <i class="fa fa-arrow-left"></i> Back
+      </a>
+    </div>
+    <ul class="nav nav-tabs justify-content-end" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="add-tab" data-bs-toggle="tab" data-bs-target="#add" type="button"
+                role="tab" aria-controls="add" aria-selected="true">
+                Add
+            </button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="add-tab">
+            <div class="form-content">
+                <form [formGroup]="taskForm">
+                    <div class="row mb-3">
+                      <label for="title" class="col-sm-2 col-form-label title">Title:</label>
+                      <div class="col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="title"
+                          [ngClass]="{'is-invalid' : (taskForm.controls.name?.errors?.required && taskForm.controls.name?.touched)}"
+                          required
+                          formControlName="name">
+                          <div class="mg-b-5" role="alert" *ngIf="taskForm.controls.name?.hasError('required') && taskForm.controls.name?.touched">
+                            <span class="custom-help-block" for="title"></span>
+                            <span class="field-validation-valid text-danger">Please enter valid value</span>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label title">Description:</label>
+                      <div class="col-sm-10">
+                        <textarea
+                          class="form-control"
+                          id="description"
+                          aria-label="With textarea"
+                          required
+                          [ngClass]="{'is-invalid' : (taskForm.controls.description?.errors?.required && taskForm.controls.description?.touched)}"
+                          formControlName="description"></textarea>
+                        <div class="mg-b-5" role="alert" *ngIf="taskForm.controls.description?.hasError('required') && taskForm.controls.description?.touched">
+                          <span class="custom-help-block" for="description"></span>
+                          <span class="field-validation-valid text-danger">Please enter valid value</span>
+                        </div>
+                      </div>
+                    </div>
+                    <fieldset class="row mb-3">
+                      <label class="col-form-label col-sm-2 pt-0 title">Status:</label>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="status" id="newStt" value="new" formControlName="status" checked>
+                          <label class="form-check-label" for="newStt">
+                            New
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="status" id="inProgressStt" value="inProgress" formControlName="status">
+                          <label class="form-check-label" for="inProgressStt">
+                            In Progress
+                          </label>
+                        </div>
+                        <div class="form-check disabled">
+                          <input class="form-check-input" type="radio" name="status" id="doneStt" value="done" formControlName="status">
+                          <label class="form-check-label" for="doneStt">
+                            Done
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <div class="actions">
+                        <button type="submit" class="btn btn-primary btn-save" (click)="saveTask()">
+                          <i class="fa fa-save"></i>&nbsp;Save
+                        </button>
+                        <button type="cancel" class="btn btn-danger" [routerLink]="['/dashboard']">
+                          <i class="fa fa-ban"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

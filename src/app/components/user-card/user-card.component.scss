@@ -1,0 +1,75 @@
+.card {
+    width: 200px;
+    max-width: 200px;
+    min-width: 155px;
+    min-height: 285px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+
+    .card-header {
+        color: white;
+        opacity: 0.9;
+    }
+
+    .card-body {
+        img {
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        a {
+            font-size: 9pt;
+            line-height: 13px;
+        }
+        .btn-schedule {
+            margin-top: 16px;
+        }
+    }
+    .form-body {
+        height: 209px;
+    }
+
+    .card-footer {
+        .btn-actions {
+            display: flex;
+            justify-content: space-evenly;
+            a {
+                line-height: 4px;
+                font-size: 6.5pt;
+            }
+        }
+    }
+}
+
+.modal {
+    .modal-dialog {
+        .modal-content {
+            .modal-header {
+                color: white !important;
+                display: flex;
+                justify-content: center;
+                user-select: none;
+            }
+        }
+    }
+}
+
+.h-40 {
+    height: 40px;
+}
+
+.lh-5 {
+    line-height: 5pt !important;
+}
+
+.mw-250 {
+    width: auto;
+    max-width: 250px;
+}
+
+.error-msg {
+    font-size: 10pt;
+}
+
+.body-height {
+    height: 218px;
+}

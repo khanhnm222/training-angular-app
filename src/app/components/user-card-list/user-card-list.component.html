@@ -1,0 +1,13 @@
+<app-user-card
+    *ngIf="isAddNew"
+    [isFormCard]="true"
+    [userData]="user"
+    (addUser)="onAdd($event)">
+</app-user-card>
+<div *ngFor="let user of userList">
+    <app-user-card
+        [userData]="user"
+        (updateUser)="onUpdate($event)"
+        (addSchedule)="onAddSchedule($event)">
+    </app-user-card>
+</div>

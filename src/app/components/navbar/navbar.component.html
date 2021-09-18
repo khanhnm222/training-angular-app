@@ -1,0 +1,80 @@
+<div class="top-nav">
+    <ul class="nav nav-pills" id="pills-tab" role="tablist" routerLinkActive="active">
+        <li class="logo">
+            <img src="../../../assets/images/angular-logo.png" alt="">
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"
+                id="pills-dashboard-tab"
+                name="pills-dashboard-tab"
+                data-toggle="pill" role="tab"
+                routerLink="dashboard"
+                [ngClass]="{'active': activeId === 'pills-dashboard-tab' }"
+                (click)="addClass('pills-dashboard-tab')">
+                Dashboard
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"
+                id="pills-users-tab"
+                name="pills-users-tab"
+                data-toggle="pill" role="tab"
+                routerLink="users"
+                [ngClass]="{'active': activeId === 'pills-users-tab' }"
+                (click)="addClass('pills-users-tab')">
+                Users
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"
+                id="pills-schedule-tab"
+                name="pills-schedule-tab"
+                data-toggle="pill" role="tab"
+                routerLink="schedule"
+                [ngClass]="{'active': activeId === 'pills-schedule-tab' }"
+                (click)="addClass('pills-schedule-tab')">
+                Schedule
+            </a>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated">
+            <a class="nav-link" 
+                id="pills-login-tab"
+                name="pills-login-tab"
+                data-toggle="pill" role="tab"
+                routerLink="login"
+                [ngClass]="{'active': activeId === 'pills-login-tab' }"
+                (click)="addClass('pills-login-tab')">
+                Login
+            </a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthenticated">
+            <a class="nav-link pills-logout-tab"
+                id="pills-logout-tab"
+                data-toggle="pill" role="tab"
+                data-bs-toggle="modal"
+                data-bs-target="#logout-dialog"
+                [ngClass]="{'active': activeId === 'pills-logout-tab' }"
+                (click)="openDialog()">
+                Logout
+            </a>
+        </li>
+    </ul>
+
+    <div class="content-title common-bg">
+        <div class="bg-title" [ngClass]="{'authenticated': isAuthenticated }">
+            <div>Angular Sprint</div>
+        </div>
+        <div *ngIf="isAuthenticated" class="account">
+            <div><i class="fa fa-user-circle"></i> User name: {{userName}}</div>
+        </div>
+    </div>
+</div>
+<app-dialog
+    [targetID]="'logout-dialog'"
+    [dlgTitle]="'Confirmation'"
+    [btnSave]="'Yes'"
+    [btnCancel]="'No'"
+    [dlgMessage]="'Are you sure you would like to log out?'"
+    (handleConfirm)="onLogout()"
+    (handelCancel)="onCancelLogout()">
+</app-dialog>

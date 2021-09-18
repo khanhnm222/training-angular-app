@@ -1,0 +1,67 @@
+.top-nav {
+    display: block;
+    overflow: hidden;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    background-color: #CF2338;
+    color: white;
+
+    ul > li > a {
+        color: white;
+    }
+}
+
+.nav-pills {
+    position: fixed;
+    margin-top: 10px;
+    margin-left: 5%;
+}
+
+.nav-pills .nav-link {
+    color: black;
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: white;
+    color: black !important;
+}
+
+.nav-item:hover {
+    cursor: pointer;
+}
+
+.logo {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+
+    img {
+        height: 40px;
+    }
+}
+
+.content-title {
+    color: white;
+    height: 60px;
+    font-size: 22pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .bg-title {
+        opacity: 0.7;
+        font-style: italic;
+    }
+
+    .authenticated {
+        margin-left: 50%;
+    }
+    .account {
+        font-size: 12pt;
+        margin-left: auto;
+        div {
+            margin-right: 30px;
+        }
+    }
+}

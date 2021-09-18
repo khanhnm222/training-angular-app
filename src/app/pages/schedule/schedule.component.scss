@@ -1,0 +1,23 @@
+.tb-schedule {
+    padding: 3% 60px;
+
+    .table {
+        thead {
+            color: white;
+        }
+
+        .btn-actions {
+            display: flex;
+            justify-content: space-around;
+
+            button {
+                font-size: 10pt;
+                height: 30px;
+                width: 65px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}

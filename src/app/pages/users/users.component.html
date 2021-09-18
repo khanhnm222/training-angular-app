@@ -1,0 +1,30 @@
+<div class="btn-add">
+    <button class="btn btn-primary" (click)="showAddUser()" [hidden]="isAddNew">
+        <i class="fa fa-plus"></i> Add
+    </button>
+    <button class="btn btn-danger" (click)="hideAddUser()" [hidden]="!isAddNew" >
+        <i class="fa fa-ban"></i> Cancel
+    </button>
+</div>
+<div class="user-list">
+    <app-user-card-list
+        [isAddNew]="isAddNew"
+        [userList]="users"
+        [user]="userFormData"
+        (create)="createUser($event)"
+        (update)="updateUser($event)"
+        (addSchedule)="addScheduleByUserName($event)">
+    </app-user-card-list>
+
+    <app-dialog
+        [targetID]="'add-schedule'"
+        [dlgTitle]="'Add a schedule for '+ userNameInForm"
+        [btnSave]="'Save'"
+        [btnCancel]="'Cancel'"
+        [dlgClass]="'modal-lg'"
+        [dlgHTML]="scheduleFormHtml"
+        [closeAndSave]="false"
+        (handleConfirm)="onSaveSchedule()">
+    </app-dialog>
+</div>
+

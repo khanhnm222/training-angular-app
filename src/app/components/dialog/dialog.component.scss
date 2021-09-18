@@ -1,0 +1,22 @@
+.modal {
+    .modal-dialog {
+        .modal-content {
+            .modal-header {
+                color: white !important;
+                display: flex;
+                justify-content: center;
+                user-select: none;
+            }
+
+            .modal-body {
+                user-select: none;
+            }
+
+            .modal-footer {
+                .btn {
+                    min-width: 90px;
+                }
+            }
+        }
+    }
+}
