@@ -1,38 +1,67 @@
-{
-    "new": [
-        {
-            "id": "1223",
-            "name": "Create task 1",
-            "description": "This is a description of task 1"
-        },
-        {
-            "id": "1222",
-            "name": "Create task 2",
-            "description": "This is a description of task 2"
-        }
-    ],
-    "inProgress": [
-        {
-            "id": "12122",
-            "name": "Task 2",
-            "description": "This is a description of task 2"
-        },
-        {
-            "id": "12145e",
-            "name": "Task 3",
-            "description": "This is a description of task 3"
-        }
-    ],
-    "done": [
-        {
-            "id": "121678e",
-            "name": "Task 4",
-            "description": "This is a description of task 4"
-        },
-        {
-            "id": "121098e",
-            "name": "Task 5",
-            "description": "This is a description of task 5"
-        }
-    ]
-}
+[
+    {
+        "createdAt": "2021-09-05T16:35:11.672Z",
+        "name": "Task 1",
+        "description": "description 10000",
+        "status": "new",
+        "id": "1"
+    },
+    {
+        "createdAt": "2021-09-05T18:30:03.712Z",
+        "name": "Task 2",
+        "description": "description 2",
+        "status": "new",
+        "id": "2"
+    },
+    {
+        "createdAt": "2021-09-05T13:19:36.326Z",
+        "name": "Angular 13",
+        "description": "description 3",
+        "status": "inProgress",
+        "id": "3"
+    },
+    {
+        "createdAt": "2021-09-05T12:03:42.742Z",
+        "name": "Task 4",
+        "description": "description 4",
+        "status": "done",
+        "id": "4"
+    },
+    {
+        "createdAt": "2021-09-06T02:48:22.347Z",
+        "name": "Task 6",
+        "description": "description 6",
+        "status": "done",
+        "id": "6"
+    },
+    {
+        "createdAt": "2021-09-05T15:57:34.303Z",
+        "name": "Task 8",
+        "description": "description 8",
+        "status": "inProgress",
+        "id": "8"
+    },
+    {
+        "createdAt": "2021-09-09T18:18:43.126Z",
+        "name": "Angular 12 Nguyen Minh Khánh Test",
+        "description": "Ahaha",
+        "status": "inProgress",
+        "id": "9",
+        "title": "Create customer"
+    },
+    {
+        "createdAt": "2021-09-09T20:54:00.141Z",
+        "name": "name 10",
+        "description": "ÁD",
+        "status": "done",
+        "id": "10",
+        "title": "Create customer"
+    },
+    {
+        "createdAt": "2021-09-10T04:40:41.093Z",
+        "name": "Create customer",
+        "description": "Khanh Test",
+        "status": "done",
+        "id": "11"
+    }
+]
